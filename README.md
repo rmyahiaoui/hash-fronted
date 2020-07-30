@@ -1,4 +1,11 @@
 # HashFronted
+##Installation et execution de l'application
+<ol>
+    <li>npm install -g @angular/cli</li>
+    <li>npm install</li>
+    <li>ng serve</li>
+    <li>http://localhost:4200/</li>
+</ol>
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.1.
 
