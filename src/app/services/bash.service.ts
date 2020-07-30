@@ -25,4 +25,9 @@ export class HashService {
                   map(res => res)
                 );
   }
+
+  delete(site: Site): Observable<any> {
+    return this.httpClient
+                .delete<any>('http://127.0.0.1:8000/api/sites/'+site.id);
+  }
 }

@@ -25,4 +25,13 @@ export class ListeComponent implements OnInit {
     );
   }
 
+  delete(site: Site): void {
+    this.hashService.delete(site).subscribe(
+      data => {
+        this.getAll()
+      },
+      err => console.error(err),
+    );
+  }
+
 }
