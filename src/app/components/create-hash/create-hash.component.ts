@@ -10,7 +10,8 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
   styleUrls: ['./create-hash.component.css']
 })
 export class CreateHashComponent implements OnInit {
-  site: Site;
+  site: Site|string;
+  errorMsg: string;
 
   @Output()
   reload = new EventEmitter<any>();
@@ -21,14 +22,17 @@ export class CreateHashComponent implements OnInit {
   }
 
   onSubmit(f: NgForm) {
-    // const reg = '(https?://)?([\\da-z.-]+)\\.([a-z.]{2,6})[/\\w .-]*/?';
-  
     this.hashService.createHash(f.value).subscribe(
       data => {
+        this.errorMsg = '';
         this.site = data;
         this.reload.emit();
       },
-      err => alert(err.error));
+      err => {
+        this.errorMsg = err.error;   
+        this.site = '';
+      }
+    );
   }
 
 }
